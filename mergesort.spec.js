@@ -1,7 +1,6 @@
 describe('Merge Sort', function(){
 
   it('has a split function that splits to two halves, works with odds', function(){
-    console.log(merge.splitRecursive([3,2,1,6,7,4]))
     expect( merge.split([1,2,3,4]) ).toEqual( [[1,2],[3,4]] );
     expect( merge.split([1,2,3]) ).toEqual( [[1,2],[3]]);
   });
@@ -37,13 +36,13 @@ describe('Merge Sort', function(){
 	it('the correct amount of splits are called', function () {
 		spyOn(merge, 'split').and.callThrough(); 
 	  merge.sort([3,2,1]);
-	  expect(merge.split.calls.count()).toEqual(-1);
+	  expect(merge.split.calls.count()).toEqual(2);
 	});
 
   it('the correct amount of combines are called', function () {
     spyOn(merge, 'combine').and.callThrough(); 
-    merge.sort([3,2,1]);
-    expect(merge.combine.calls.count()).toEqual(3);
+    merge.sort([3,2,1,5,8,3,2]);
+    expect(merge.combine.calls.count()).toEqual(6);
   });
 
 });

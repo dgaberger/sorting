@@ -14,9 +14,6 @@ merge.split = function(array){
 merge.combine = function(array){
 	this.array = array;
 	var result = [];
-	// if(this.array.length < 2){		//handles trivial case
-	// 	return this.array;
-	// }
 	while (array[0][0] && array[1][0]){
 		if (array[0][0] > array[1][0]){
 			result.push(array[1].shift());
@@ -35,10 +32,9 @@ merge.combine = function(array){
 }
 
 merge.sort = function(array){
-	if (array.length < 2){
-		return array;
-	} else {
-		var result = array
-
-	} 
+	if (array.length < 2) return array;
+	var splitArr = this.split(array)
+	var left = splitArr[0]
+	var right = splitArr[1]
+	return this.combine(	[this.sort(left), this.sort(right)]	)
 }
