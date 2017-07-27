@@ -1,13 +1,15 @@
 describe('Merge Sort', function(){
 
-  it('s split function splits to two halves, works with odds', function(){
+  it('has a split function that splits to two halves, works with odds', function(){
+    console.log(merge.splitRecursive([3,2,1,6,7,4]))
     expect( merge.split([1,2,3,4]) ).toEqual( [[1,2],[3,4]] );
     expect( merge.split([1,2,3]) ).toEqual( [[1,2],[3]]);
   });
 
-  it('s combine function combines two halves, works with odds', function(){
-    expect( merge.combine([[1,6],[2,4]]).toEqual([1,2,4,6]));
-    expect( merge.combine([[1,3],[2]]).toEqual( [1,2,3]));
+  it('has a combine function that combines two halves, works with odds', function(){
+    console.log(merge.combine([[1,6],[2,4]]));
+    expect( merge.combine([[1,6],[2,4]] )).toEqual([1,2,4,6]);
+    expect( merge.combine([[1,3],[2]])).toEqual( [1,2,3]);
   });
 
   it('handles an empty array', function(){
@@ -16,6 +18,10 @@ describe('Merge Sort', function(){
 
   it('handles an array of length 1', function(){
     expect( merge.sort([3]) ).toEqual( [3] );
+  });
+
+  it('handles an array of length 2', function(){
+    expect( merge.sort([3, 2]) ).toEqual( [2, 3] );
   });
 
   it('handles an already sorted array', function(){
